@@ -1,0 +1,12 @@
+; Move a block of data from 2000H–2009H to 3000H–3009H.
+LXI B, 2000H 
+LXI D, 3000H
+MVI H, 0AH 
+
+LOOP: LDAX B 
+STAX D 
+INX B 
+INX D 
+DCR H 
+JNZ LOOP 
+HLT

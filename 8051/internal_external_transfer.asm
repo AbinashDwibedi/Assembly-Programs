@@ -1,0 +1,11 @@
+; transfering 10 bytes of data from 20h to 2000H
+MOV R7,#0AH
+MOV R0,#20H 
+MOV DPTR,#2000H
+
+LOOP: MOV A, @R0 
+MOVX @DPTR, A 
+INC DPTR 
+INC R0 
+DJNZ R7, LOOP
+HERE : SJMP HERE

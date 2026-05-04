@@ -1,0 +1,21 @@
+; Arrange numbers in ascending order (bubble sort).
+; 10 ELEMENTS STARTING FROM 2000H 
+
+MVI B, 0AH 
+
+LOOP1:LXI H, 2000H 
+MVI C, 09H
+LOOP2: MOV A, M 
+INX H 
+CMP M 
+JC SKIP 
+MOV D,M 
+MOV M,A 
+DCX H 
+MOV M,D 
+INX H 
+SKIP: DCR C 
+JNZ LOOP2 
+DCR B 
+JNZ LOOP1 
+HLT 
